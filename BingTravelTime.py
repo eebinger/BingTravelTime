@@ -77,14 +77,14 @@ def bing_api_travelDuration(routes, output_file):
 						
 						# Append returned data to routes json
 						bing_result.append({
-							'route': 					route['TIP'],								# The Name of the Corridor (A-->B)
-							'dow': 						time.strftime('%A'),						# DOW
-							'date':						time.strftime('%x'), 						# Date
-							'callTime': 				time.strftime('%X'),						# Time (24-Hour Clock)
-							'travelDistance': 			float(bingData['travelDistance']),			# Travel Distance (miles)
-							'travelDuration': 			int(bingData['travelDuration']),			# Travel Duration, no Traffic (seconds)
+							'route': 			route['TIP'],					# The Name of the Corridor (A-->B)
+							'dow': 				time.strftime('%A'),				# DOW
+							'date':				time.strftime('%x'), 				# Date
+							'callTime': 			time.strftime('%X'),				# Time (24-Hour Clock)
+							'travelDistance': 		float(bingData['travelDistance']),		# Travel Distance (miles)
+							'travelDuration': 		int(bingData['travelDuration']),		# Travel Duration, no Traffic (seconds)
 							'travelDurationTraffic': 	int(bingData['travelDurationTraffic']), 	# Travel Duration with Traffic (seconds)
-							'trafficCongestion': 		str(bingData['trafficCongestion'])			# The Level of Traffic Congestion
+							'trafficCongestion': 		str(bingData['trafficCongestion'])		# The Level of Traffic Congestion
 						})
 					
 					# If failure, print time of error, continue
@@ -93,7 +93,7 @@ def bing_api_travelDuration(routes, output_file):
 						print "A-->B, Error at " + time.strftime('%A %X %x')
 					
 				# Dump output as json to output_file
-				json.dump(routes, f)
+				json.dump(bing_result, f)
 			# Close output_file so next iteration rewrites with appended data
 			f.closed
 		else:
