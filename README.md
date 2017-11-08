@@ -32,9 +32,9 @@ bing_result = [
 ```
 	
 For more information on the Bing Maps API, see:
-	https://www.bingmapsportal.com/Application
-	https://msdn.microsoft.com/en-us/library/ff701717.aspx
+* https://www.bingmapsportal.com/Application
+* https://msdn.microsoft.com/en-us/library/ff701717.aspx
 	
 This script uses the schedule library to query Bing Maps every n minutes. The documentation
 for the schedule library can be found here:
-	https://schedule.readthedocs.io/en/stable/
+* https://schedule.readthedocs.io/en/stable/
