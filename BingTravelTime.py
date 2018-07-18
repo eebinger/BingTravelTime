@@ -65,9 +65,9 @@ def bing_api_travelDuration(routes, output_file):
 						url = http
 						url += "&wp.0=" + str(route['start_coord'][0]) + "," + str(route['start_coord'][1])
 						if 'mid_coord' in route:
-							url += "&wp.1=" + str(route['mid_coord'][0][0]) + "," + str(route['mid_coord'][0][1])
-							url += "&wp.2=" + str(route['mid_coord'][1][0]) + "," + str(route['mid_coord'][1][1])
-							url += "&wp.3=" + str(route['end_coord'][0]) + "," + str(route['end_coord'][1])
+							for waypoint in range(len(route['mid_coord'])):
+								url += "&wp."+str(waypoint+1)+"=" + str(route['mid_coord'][waypoint][0]) + "," + str(route['mid_coord'][waypoint][1])
+							url += "&wp."+str(len(route['mid_coord'])+1)+"=" + str(route['end_coord'][0]) + "," + str(route['end_coord'][1])
 						else:
 							url += "&wp.1=" + str(route['end_coord'][0]) + "," + str(route['end_coord'][1])
 						handle = urllib2.urlopen(url)
